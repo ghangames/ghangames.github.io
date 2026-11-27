@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chess Defense VS</title>
+<meta property="og:title" content="Chess Defense: VS challenge">
+<meta property="og:description" content="Your friend challenged you to a live 1v1 duel. Tap to join!">
+<style>
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#16200f;color:#f5ecd0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;text-align:center}
+.c{padding:28px 20px;max-width:420px}
+h1{font-size:26px;margin:0 0 6px;color:#ffd640}
+p{margin:8px 0;color:#e6dcbc}
+.code{font-size:64px;font-weight:800;letter-spacing:6px;margin:14px 0;color:#fff}
+a.b{display:block;margin:14px 0;padding:16px;border-radius:14px;font-size:20px;font-weight:700;text-decoration:none}
+.open{background:#e4c55c;color:#1d1a0c}.play{background:#2e8c3c;color:#fff}
+small{color:#a99f80}
+</style></head><body><div class="c">
+<h1 id="t">Chess Defense VS</h1>
+<p id="s"></p>
+<div class="code" id="code"></div>
+<a class="b open" id="open" href="#"></a>
+<a class="b play" id="play" href="#"></a>
+<small id="h"></small>
+</div>
+<script>
+var PKG="com.yasingunhan.junglechessdefense";
+var q=new URLSearchParams(location.search);var c=(q.get("c")||"").replace(/\D/g,"").slice(0,5);var tc=(q.get("t")||"").replace(/[^0-9:+]/g,"").slice(0,8);
+var tr=(navigator.language||"").toLowerCase().indexOf("tr")===0;
+var L=tr?{s:"Arkadaşın seni canlı 1v1 düelloya çağırıyor!",o:"OYUNDA AÇ",p:"Google Play'den indir (ücretsiz)",h:"Oyun açılmazsa: VS → Kodla katıl → kodu yaz."}
+      :{s:"Your friend challenged you to a live 1v1 duel!",o:"OPEN IN GAME",p:"Get it on Google Play (free)",h:"If the game doesn't open: VS → Join with code → enter the code."};
+var play="https://play.google.com/store/apps/details?id="+PKG+"&referrer="+encodeURIComponent("utm_source=vs_invite&utm_medium=link");
+document.getElementById("s").textContent=L.s+(tc?" ("+tc+")":"");
+document.getElementById("code").textContent=c||"-----";
+var o=document.getElementById("open");o.textContent=L.o;
+var intent="intent://ghangames.github.io/vs/?c="+c+(tc?"&t="+encodeURIComponent(tc):"")+"#Intent;scheme=https;package="+PKG+";S.browser_fallback_url="+encodeURIComponent(play)+";end";
+o.href=/android/i.test(navigator.userAgent)?intent:play;
+var p=document.getElementById("play");p.textContent=L.p;p.href=play;
+document.getElementById("h").textContent=L.h;
+</script></body></html>

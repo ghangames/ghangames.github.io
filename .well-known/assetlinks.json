@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.yasingunhan.junglechessdefense",
+      "sha256_cert_fingerprints": ["6F:E7:80:FB:79:A3:34:D4:AD:A5:1D:B1:92:65:D0:57:B2:16:A7:72:63:42:27:15:AC:23:67:38:81:AC:BE:DC"]
+    }
+  }
+]
